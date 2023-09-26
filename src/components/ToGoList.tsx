@@ -1,6 +1,7 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import { Categories, ICountry, countryState } from "../atoms";
+import styled from "styled-components";
 
 export default function ToGoList({ id, country, category }: ICountry) {
     const setCountries = useSetRecoilState(countryState);
@@ -29,23 +30,23 @@ export default function ToGoList({ id, country, category }: ICountry) {
         const categoryButtons = Object.values(Categories).map((categoryValue, index) => {
             if (category === 'TO_GO' && categoryValue === 'TO_GO') {
                 return (
-                    <>
+                    <div>
                         <button name="VISITED" onClick={onClick} key={index + "1"}>✅</button>
                         <button onClick={onDelete} key={index + "2"} >🗑️</button>
-                    </>
+                    </div>
                 )
             }
             if (category === 'VISITED' && categoryValue === "VISITED") {
                 return (
-                    <>
-                        <button name="LIKED" onClick={onClick} key={index + "3"}>👍</button>
+                    <div>
+                        <button name="LIKED" onClick={onClick} key={index + "3"}>💗</button>
                         <button name="TO_GO" onClick={onClick} key={index + "4"}>❌</button>
-                    </>
+                    </div>
                 )
             }
             if (category === 'LIKED' && categoryValue === "LIKED") {
                 return (
-                    <button name="VISITED" onClick={onClick} key={index + "5"}>👎</button>
+                    <button name="VISITED" onClick={onClick} key={index + "5"}>💔</button>
                 )
             }
         });
@@ -53,9 +54,17 @@ export default function ToGoList({ id, country, category }: ICountry) {
         return categoryButtons;
     };
     return (
-        <li>
+        <ListItem>
             <span>{country}</span>
             {createButtons()}
-        </li>
+        </ListItem>
     );
 }
+
+const ListItem = styled.li`
+    width: 15rem;
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin: 0.5rem 0;
+`

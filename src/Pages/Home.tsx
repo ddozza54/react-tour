@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <HomeWrapper>
-            <h1>내가 가고싶은 나라들</h1>
+            <Title>내가 가고싶은 나라들</Title>
             <ToGoForm />
             <ul>
                 {toGoCountries?.map((country) => (
@@ -24,7 +24,7 @@ export default function Home() {
                     <ToGoList key={country.id} {...country} />
                 ))}
             </ul>
-            <h1>내가 갈 예정인 나라들</h1>
+            <h1>내가 좋아하는 나라들</h1>
             <ul>
                 {likedContries?.map((country) => (
                     <ToGoList key={country.id} {...country} />
@@ -36,4 +36,13 @@ export default function Home() {
 
 const HomeWrapper = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    border: #64a077 3px solid;
+    border-radius: 2rem;
+`;
+const Title = styled.h1`
+margin-bottom: 2rem;
 `

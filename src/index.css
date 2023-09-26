@@ -1,15 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Courgette&family=Diphylleia&family=Fuggles&family=Great+Vibes&display=swap');
 
 :root {
   color: #2b563b;
   background-color: #e0ddd6;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-family: 'Diphylleia', serif;
 }
 
 * {
@@ -18,8 +12,23 @@
 
 body {
   width: 90%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: small;
+}
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+  margin: 5px;
+  padding: 5px;
+  background-color: #95b87d;
+  font-size: medium;
+}
+
+span {
+  font-size: medium;
 }
